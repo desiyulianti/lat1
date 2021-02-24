@@ -9,33 +9,42 @@
  * @author MOKLET-2
  */
 public class Bus3 {
-    public int penumpang;
-    public int maxpenumpang;
+    public double penumpang;
+    public double maxpenumpang;
+    public double counter;
     
-    public Bus3(int maxpenumpang){
+    public Bus3(double maxpenumpang){
         this.maxpenumpang = maxpenumpang;
         penumpang = 0;
     }
     //method mutator
-    public void addpenumpang(int penumpang){
-        int temp;
+    public void addpenumpang(double penumpang){
+        double temp;
         temp = this.penumpang + penumpang;
         if(temp>maxpenumpang){
         System.out.println("penumpang melebihi kuota");
         }
         else{
          this.penumpang = temp;
+         counter++;
         }
     }
+    public void getpenumpang(double password){
+       if(password==24){
+        System.out.println("Pasword benar");
+       } 
+       else{
+        System.out.println("pasword salah");
+    }
+    }
+       public double getAverage(){
+           return penumpang/counter;
+       }
     public void cetakpenumpang(){
         System.out.println("Penumpang bus sekarang : "+penumpang);
         System.out.println("maksimum Penumpang yang seharusnya adalah : "+maxpenumpang);   
     }
-    
-    
-    //penjelasan poin b
-    //pada saat kelas latihan1 dijalankan terdapat beberapa error karena variabel penumpang dan maxpenumpang diubah memjadi private sehingga
-   //kelas bus tidak dapat merubah dari nilai variabel private tersebut. sehingga dibutuhkan method mutator pada kelas bus agar dapat mengakses
-   //variabel yang di private sekaligus memberikan kondisi agar tidak terjadi overload
-
 }
+  //pada program diatas terdapat password yang digunakan untuk memproteksi atau melindungi penambahan penumpang pada kelas Bus3
+  //jika password yang dimasukkan benar maka akan menambahkan jumlah penumpang namun jika salah akan ada pemberitahuan.
+
